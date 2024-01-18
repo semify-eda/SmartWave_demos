@@ -1,0 +1,14 @@
+{
+	"addr_gnd_gnd": "0x40",
+	"addr_gnd_vs": "0x41",
+	"addr_vs_gnd": "0x44",
+	"addr_vs_vs": "0x44",
+	"reg_config": "0x00",
+	"reg_current": "0x01",
+	"reg_busvoltage": "0x02",
+	"reg_power": "0x03",
+	"reg_mask_enable": "0x06",
+	"reg_alert_limit": "0x07",
+	"reg_die_id": "0xFF",
+	"reg_mfg_id": "0xFE"
+}

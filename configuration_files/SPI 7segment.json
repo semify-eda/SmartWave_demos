@@ -1,0 +1,59 @@
+{
+  "entries": [
+    {
+      "protocol": {
+        "name": "Data",
+        "pconfig": {
+          "bitWidth": 32,
+          "applicableDrivers": [
+            0
+          ]
+        },
+        "palObjs": [],
+        "stimuli": {},
+        "protocolSelector": null,
+        "inspectors": {},
+        "sampleFreq": "62500",
+        "ebscon": "SPI",
+        "data": "0x0c00, 0x0c01, 0x0aff, 0x0b04, 0x0900, 0x01fe, 0x020e, 0x030e, 0x044f, 0x0537, 0x0000",
+        "readback": "Off"
+      },
+      "driver": {
+        "type_id": 0,
+        "id": 0,
+        "pins": {
+          "SCLK": {
+            "id": "A1",
+            "pullup": false,
+            "outputType": 1
+          },
+          "MOSI": {
+            "id": "A2",
+            "pullup": false,
+            "outputType": 1
+          },
+          "MISO": null,
+          "SS": {
+            "id": "A3",
+            "pullup": false,
+            "outputType": 1
+          }
+        },
+        "enable": true,
+        "bitWidth": "16",
+        "msbFirst": "MSB",
+        "cpol": 0,
+        "cspol": 0,
+        "cpha": 0,
+        "freq": "1000000",
+        "pinCustomNames": {},
+        "customName": null
+      }
+    }
+  ],
+  "syncDiv": 528,
+  "subcycles": 0,
+  "triggermode": 0,
+  "voltage": 3.3,
+  "variables": {}
+}

@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "protocol": {
+        "name": "Data",
+        "pconfig": {
+          "bitWidth": 8,
+          "applicableDrivers": [
+            1
+          ]
+        },
+        "palObjs": [],
+        "stimuli": {},
+        "protocolSelector": null,
+        "inspectors": {},
+        "sampleFreq": "503.5477225909819",
+        "ebscon": "I2C",
+        "mode": 0,
+        "writeData": "0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd, 0xdd",
+        "readLength": "2",
+        "registerAddressWidth": "1",
+        "registerDataWidth": "1",
+        "registerOperations": []
+      },
+      "driver": {
+        "type_id": 1,
+        "id": 0,
+        "pins": {
+          "SCL": {
+            "id": "A2",
+            "pullup": true
+          },
+          "SDA": {
+            "id": "A1",
+            "pullup": true
+          }
+        },
+        "freq": "503.5477225909819",
+        "deviceId": "0x20",
+        "pinCustomNames": {},
+        "customName": null
+      }
+    }
+  ],
+  "syncDiv": 65535,
+  "subcycles": 0,
+  "triggermode": 2,
+  "voltage": 3.3,
+  "variables": {}
+}
