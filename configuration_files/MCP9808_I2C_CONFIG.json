@@ -1,0 +1,60 @@
+{
+  "entries": [
+    {
+      "protocol": {
+        "name": "Data",
+        "pconfig": {
+          "bitWidth": 8,
+          "applicableDrivers": [
+            1
+          ]
+        },
+        "palObjs": [],
+        "stimuli": {},
+        "protocolSelector": null,
+        "inspectors": {},
+        "sampleFreq": "44444",
+        "ebscon": "I2C",
+        "mode": 0,
+        "writeData": "reg_t_ambient(0x05)",
+        "readLength": "2",
+        "registerAddressWidth": "1",
+        "registerDataWidth": "1",
+        "registerOperations": []
+      },
+      "driver": {
+        "type_id": 1,
+        "id": 0,
+        "pins": {
+          "SCL": {
+            "id": "A1",
+            "pullup": true
+          },
+          "SDA": {
+            "id": "A2",
+            "pullup": true
+          }
+        },
+        "freq": "400000",
+        "deviceId": "default_addr(0x18)",
+        "pinCustomNames": {},
+        "customName": null
+      }
+    }
+  ],
+  "syncDiv": 742.5074250742507,
+  "subcycles": 0,
+  "triggermode": 0,
+  "voltage": 3.3,
+  "variables": {
+    "default_addr": "0x18",
+    "reg_config": "0x01",
+    "reg_t_upper": "0x02",
+    "reg_t_lower": "0x03",
+    "reg_t_crit": "0x04",
+    "reg_t_ambient": "0x05",
+    "reg_manuf_id": "0x06",
+    "reg_device_id": "0x07",
+    "reg_resolution": "0x08"
+  }
+}
