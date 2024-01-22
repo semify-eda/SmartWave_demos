@@ -1,0 +1,66 @@
+{
+  "entries": [
+    {
+      "protocol": {
+        "name": "Data",
+        "pconfig": {
+          "bitWidth": 8,
+          "applicableDrivers": [
+            1
+          ]
+        },
+        "palObjs": [],
+        "stimuli": {},
+        "protocolSelector": null,
+        "inspectors": {},
+        "sampleFreq": "44444",
+        "ebscon": "I2C",
+        "mode": 0,
+        "writeData": "reg_ctrl_meas(0xf4), weather_meas(0x25)",
+        "readLength": "1",
+        "registerAddressWidth": "1",
+        "registerDataWidth": "1",
+        "registerOperations": []
+      },
+      "driver": {
+        "type_id": 1,
+        "id": 0,
+        "pins": {
+          "SCL": {
+            "id": "A1",
+            "pullup": true
+          },
+          "SDA": {
+            "id": "A2",
+            "pullup": true
+          }
+        },
+        "freq": "400000",
+        "deviceId": "default_addr(0x77)",
+        "pinCustomNames": {},
+        "customName": null
+      }
+    }
+  ],
+  "syncDiv": 742.5074250742507,
+  "subcycles": 0,
+  "triggermode": 0,
+  "voltage": 3.3,
+  "variables": {
+    "default_addr": "0x77",
+    "reg_chip_id": "0xD0",
+    "reg_softrst": "0xE0",
+    "command_rst": "0xB6",
+    "reg_status": "0xF3",
+    "reg_ctrl_meas": "0xF4",
+    "reg_config": "0xF5",
+    "reg_press_msb": "0xF7",
+    "reg_press_lsb": "0xF8",
+    "reg_press_xlsb": "0xF9",
+    "reg_temp_msb": "0xFA",
+    "reg_temp_lsb": "0xFB",
+    "reg_temp_xlsb": "0xFC",
+    "weather_meas": "0x25",
+    "weather_conf": "0x20"
+  }
+}
