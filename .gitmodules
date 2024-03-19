@@ -4,3 +4,4 @@
 [submodule "IMU_sensor_demo"]
 	path = IMU_sensor_demo
 	url = https://github.com/semify-eda/IMU_sensor_demo.git
+	branchs = main
