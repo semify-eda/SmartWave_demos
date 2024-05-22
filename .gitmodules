@@ -5,3 +5,6 @@
 	path = IMU_sensor_demo
 	url = https://github.com/semify-eda/IMU_sensor_demo.git
 	branchs = main
+[submodule "i2c_comms"]
+	path = i2c_comms
+	url = https://github.com/semify-eda/i2c_comms.git
