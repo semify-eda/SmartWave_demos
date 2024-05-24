@@ -1,5 +1,5 @@
 numpy==1.26.4
-SmartWaveAPI~=1.0.0
+SmartWaveAPI
 matplotlib~=3.8.0
 keyboard~=0.13.5
 scipy~=1.11.3
