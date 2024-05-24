@@ -31,7 +31,6 @@ def i2ct_conf(sw):
     i2ct_dev_addr = i2ct_env["CFG"]["addr"]
     i2ct_reg_addr = i2ct_env["REGADDR"]["addr"]
     i2ct_regwdata_addr = i2ct_env["REGWDATA"]["addr"]
-    i2ct_regrdata_addr = i2ct_env["REGRDATA"]["addr"]
 
     # Setup I2C address within the I2C target
     set_addr = 0
@@ -53,8 +52,6 @@ def i2ct_conf(sw):
     sw.writeFPGARegister(i2ct_regwdata_addr, set_id)
     read_data = sw.readFPGARegister(i2ct_regwdata_addr)
     logging.info(f"[DEV ID WRITE_REG] - Data read back: {read_data:#0x} from address: {i2ct_regwdata_addr:#0x}")
-    read_data = sw.readFPGARegister(i2ct_regrdata_addr)
-    logging.info(f"[DEV ID READ_REG] - Data read back: {read_data:#0x} from address: {i2ct_regrdata_addr:#0x}")
 
     set_en = 0
     set_en |= 1 << i2ct_env["CTRL"]["EN"]["LSB"]
@@ -74,7 +71,6 @@ def i2ct_amb_temp(sw, ta_data):
     i2ct_env = FPGA_Reg.registers["wfg_drive_i2ct_top_0"]
     i2ct_reg_addr = i2ct_env["REGADDR"]["addr"]
     i2ct_regwdata_addr = i2ct_env["REGWDATA"]["addr"]
-    i2ct_regrdata_addr = i2ct_env["REGRDATA"]["addr"]
 
     # Setup the ambient temperature  register of the I2C target
     set_amb = 0
@@ -86,9 +82,8 @@ def i2ct_amb_temp(sw, ta_data):
     set_amb |= ta_data << i2ct_env["REGWDATA"]["DATA"]["LSB"]
     sw.writeFPGARegister(i2ct_regwdata_addr, set_amb)
     read_data = sw.readFPGARegister(i2ct_regwdata_addr)
-    logging.info(f"[T_AMB WRITE_REG] - Data read back: {read_data:#0x} // {int(read_data)} from address: {i2ct_regwdata_addr:#0x}")
-    read_data = sw.readFPGARegister(i2ct_regrdata_addr)
-    logging.info(f"[T_AMB READ_REG] - Data read back: {read_data:#0x} // {int(read_data)} from address: {i2ct_regrdata_addr:#0x}")
+    logging.info(f"[T_AMB WRITE_REG] - Data read back: {read_data:#0x} // {int(read_data)} "
+                 f"from address: {i2ct_regwdata_addr:#0x}")
 
 
 def pin_mux_conf(sw):
