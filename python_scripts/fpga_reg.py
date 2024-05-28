@@ -9,6 +9,7 @@
 #multidata: wfg_stim_mem_top:../../wfg/wfg_stim_mem/data/wfg_stim_mem_reg.json
 #multidata: wfg_record_mem_top:../../wfg/wfg_record_mem/data/wfg_record_mem_reg.json
 #multidata: wfg_pin_mux_top:../../wfg/wfg_pin_mux/data/wfg_pin_mux_reg.json
+#multidata: wfg_sysctrl_reg:../../wfg/wfg_top/data/wfg_sysctrl_reg.json
 #template: python_registers/registers.template
 #marker_template_code
 
@@ -478,21 +479,21 @@ class FPGA_Reg:
         },
         "MIRROR_OUTPUT" : {
           "addr" : 0x46030,
-          "" : {
+          "VAL" : {
             "MSB" : 15,
             "LSB" : 0
           }
         },
         "MIRROR_PULLUP" : {
           "addr" : 0x46034,
-          "" : {
+          "VAL" : {
             "MSB" : 15,
             "LSB" : 0
           }
         },
         "MIRROR_INPUT" : {
           "addr" : 0x46038,
-          "" : {
+          "VAL" : {
             "MSB" : 15,
             "LSB" : 0
           }
@@ -534,6 +535,155 @@ class FPGA_Reg:
         },
         "MODULE_INFO" : {
           "addr" : 0x460fc,
+          "PATCH" : {
+            "MSB" : 7,
+            "LSB" : 0
+          },
+          "MINOR" : {
+            "MSB" : 15,
+            "LSB" : 8
+          },
+          "MAJOR" : {
+            "MSB" : 23,
+            "LSB" : 16
+          },
+          "TYPE" : {
+            "MSB" : 27,
+            "LSB" : 27
+          },
+          "BLOCK" : {
+            "MSB" : 31,
+            "LSB" : 28
+          }
+        }
+      },
+      "wfg_sysctrl_reg" : {
+        "PRODUCT" : {
+          "addr" : 0x48000,
+          "ID" : {
+            "MSB" : 31,
+            "LSB" : 0
+          }
+        },
+        "FPGA_VERSION" : {
+          "addr" : 0x48004,
+          "PATCH" : {
+            "MSB" : 7,
+            "LSB" : 0
+          },
+          "MINOR" : {
+            "MSB" : 15,
+            "LSB" : 8
+          },
+          "MAJOR" : {
+            "MSB" : 23,
+            "LSB" : 16
+          },
+          "DEV" : {
+            "MSB" : 24,
+            "LSB" : 24
+          }
+        },
+        "GENDATE" : {
+          "addr" : 0x48008,
+          "YEAR" : {
+            "MSB" : 10,
+            "LSB" : 0
+          },
+          "MONTH" : {
+            "MSB" : 14,
+            "LSB" : 11
+          },
+          "DAY" : {
+            "MSB" : 19,
+            "LSB" : 15
+          },
+          "HOUR" : {
+            "MSB" : 23,
+            "LSB" : 20
+          },
+          "MINUTE" : {
+            "MSB" : 29,
+            "LSB" : 24
+          }
+        },
+        "CLK_SPEED" : {
+          "addr" : 0x4800c,
+          "VAL" : {
+            "MSB" : 7,
+            "LSB" : 0
+          }
+        },
+        "SOC_CTRL" : {
+          "addr" : 0x48010,
+          "FETCH_ENABLE" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "CORE_RESET_N" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+        },
+        "SOC_STATUS" : {
+          "addr" : 0x48014,
+          "CORE_SLEEP" : {
+            "MSB" : 0,
+            "LSB" : 0
+          }
+        },
+        "RESET_FLAGS" : {
+          "addr" : 0x48020,
+          "WFG" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "SOC" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+        },
+        "RESET_CLEARS" : {
+          "addr" : 0x48024,
+          "WFG" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "SOC" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+        },
+        "ISR" : {
+          "addr" : 0x480a0,
+          "WISHBONE_INVALID_ADDRESS" : {
+            "MSB" : 0,
+            "LSB" : 0
+          }
+        },
+        "IER" : {
+          "addr" : 0x480a4,
+          "WISHBONE_INVALID_ADDRESS" : {
+            "MSB" : 0,
+            "LSB" : 0
+          }
+        },
+        "ICR" : {
+          "addr" : 0x480a8,
+          "WISHBONE_INVALID_ADDRESS" : {
+            "MSB" : 0,
+            "LSB" : 0
+          }
+        },
+        "INTERRUPT_MIRROR" : {
+          "addr" : 0x480b0,
+          "VECTOR" : {
+            "MSB" : 31,
+            "LSB" : 0
+          }
+        },
+        "MODULE_INFO" : {
+          "addr" : 0x480fc,
           "PATCH" : {
             "MSB" : 7,
             "LSB" : 0
@@ -1342,6 +1492,14 @@ class FPGA_Reg:
           "WAIT_STATE_ENABLED" : {
             "MSB" : 8,
             "LSB" : 8
+          },
+          "CORE_SEL" : {
+            "MSB" : 16,
+            "LSB" : 16
+          },
+          "CORE_DEPENDENT" : {
+            "MSB" : 17,
+            "LSB" : 17
           }
 
         },
@@ -1432,6 +1590,14 @@ class FPGA_Reg:
           "WAIT_STATE_ENABLED" : {
             "MSB" : 8,
             "LSB" : 8
+          },
+          "CORE_SEL" : {
+            "MSB" : 16,
+            "LSB" : 16
+          },
+          "CORE_DEPENDENT" : {
+            "MSB" : 17,
+            "LSB" : 17
           }
 
         },
@@ -1524,8 +1690,8 @@ class FPGA_Reg:
             "LSB" : 8
           },
           "DATASIZE" : {
-            "MSB" : 16,
-            "LSB" : 15
+            "MSB" : 17,
+            "LSB" : 16
           }
 
         },
@@ -1584,6 +1750,10 @@ class FPGA_Reg:
           "EN" : {
             "MSB" : 0,
             "LSB" : 0
+          },
+          "" : {
+            "MSB" : 31,
+            "LSB" : 31
           }
 
         },
@@ -1594,8 +1764,12 @@ class FPGA_Reg:
             "LSB" : 0
           },
           "TXSIZE" : {
-            "MSB" : 7,
+            "MSB" : 4,
             "LSB" : 1
+          },
+          "CORE_DEPENDENT" : {
+            "MSB" : 7,
+            "LSB" : 7
           },
           "CDIV" : {
             "MSB" : 31,
@@ -1620,6 +1794,50 @@ class FPGA_Reg:
           "SHIFT_DIR" : {
             "MSB" : 20,
             "LSB" : 20
+          }
+
+        },
+        "RX_CFG" : {
+          "addr" : 0x8600c,
+          "TIMEOUT" : {
+            "MSB" : 9,
+            "LSB" : 0
+          }
+
+        },
+        "ISR" : {
+          "addr" : 0x860a0,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+
+        },
+        "IER" : {
+          "addr" : 0x860a4,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+
+        },
+        "ICR" : {
+          "addr" : 0x860a8,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
           }
 
         },
@@ -1654,6 +1872,10 @@ class FPGA_Reg:
           "EN" : {
             "MSB" : 0,
             "LSB" : 0
+          },
+          "" : {
+            "MSB" : 31,
+            "LSB" : 31
           }
 
         },
@@ -1664,8 +1886,12 @@ class FPGA_Reg:
             "LSB" : 0
           },
           "TXSIZE" : {
-            "MSB" : 7,
+            "MSB" : 4,
             "LSB" : 1
+          },
+          "CORE_DEPENDENT" : {
+            "MSB" : 7,
+            "LSB" : 7
           },
           "CDIV" : {
             "MSB" : 31,
@@ -1690,6 +1916,50 @@ class FPGA_Reg:
           "SHIFT_DIR" : {
             "MSB" : 20,
             "LSB" : 20
+          }
+
+        },
+        "RX_CFG" : {
+          "addr" : 0x8610c,
+          "TIMEOUT" : {
+            "MSB" : 9,
+            "LSB" : 0
+          }
+
+        },
+        "ISR" : {
+          "addr" : 0x861a0,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+
+        },
+        "IER" : {
+          "addr" : 0x861a4,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
+          }
+
+        },
+        "ICR" : {
+          "addr" : 0x861a8,
+          "TIMEOUT_REACHED" : {
+            "MSB" : 0,
+            "LSB" : 0
+          },
+          "FRAME_ERROR" : {
+            "MSB" : 1,
+            "LSB" : 1
           }
 
         },
