@@ -11,6 +11,7 @@ import os
 import logging
 import time
 import threading
+import numpy as np
 
 from datetime import datetime
 from SmartWaveAPI import SmartWave
@@ -23,7 +24,7 @@ def i2ct_conf(sw):
     """
     i2ct_addr = 0x18  # I2C address of the MCP9808 Temperature Sensor
     i2ct_devid_addr = 0x07  # Unique device ID register address
-    i2ct_devid_val = 0x37  # Arbitrary device ID, set to 55
+    i2ct_devid_val = 0x0037  # Arbitrary device ID, set to 55
 
     # Define the registers of the I2C target modules
     i2ct_env = FPGA_Reg.registers["wfg_drive_i2ct_top_0"]
@@ -121,6 +122,35 @@ def pin_mux_conf(sw):
     sw.writeFPGARegister(addr, pingroup)
 
 
+def temp_conv(ta_data: float) -> int:
+    """
+    Convert a floating-point temperature value to a 16-bit register format.
+
+    Parameters:
+    ta_data (float): User input temperature to write to the register.
+
+    Returns:
+    int: The 16-bit register value.
+    """
+    if ta_data < 0:
+        sign = 1
+        ta_data = abs(ta_data)
+    else:
+        sign = 0
+
+    integer_part = int(ta_data)
+    fractional_part = ta_data - integer_part
+
+    combined_value = (integer_part << 4) | int(fractional_part * 16)
+
+    if sign == 1:
+        combined_value = (1 << 12) - combined_value
+    ta_bin = combined_value & 0xFFF
+    ta_bin |= sign << 12
+
+    return ta_bin
+
+
 def main():
     """
         Main function for the sensor emulation
@@ -157,7 +187,7 @@ def main():
                 if new_value.lower() == 'exit':
                     print("Exiting input thread.")
                     break
-                ta_data = int(new_value)
+                ta_data = temp_conv(float(new_value))
                 i2ct_amb_temp(sw, ta_data)
                 logging.info(f"Updated ambient temperature to: {ta_data}")
             except ValueError:
