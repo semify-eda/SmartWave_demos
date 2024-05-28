@@ -27,7 +27,7 @@ def temp_read():
         upper_byte, ta_lsb = i2c.readRegister(0x18, [0x05], 2)
         msb = bin(upper_byte)[2:].zfill(8)
         ta_msb = int(msb[4:])
-        sign = int(msb[5])
+        sign = int(msb[3])
         # Convert the bits into decimal format and display temperature in degree Celsius
         if sign == 0:
             t_ambient = (ta_msb * 2 ** 4) + (ta_lsb * 2 ** (-4))
